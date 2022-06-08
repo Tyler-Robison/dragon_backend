@@ -10,7 +10,7 @@ CREATE TABLE characters (
       last_name VARCHAR(20) NOT NULL,
       race VARCHAR(20) NOT NULL,
       class VARCHAR(20) NOT NULL,
-      user_id INTEGER REFERENCES users ON DELETE CASCADE,
+      user_id INTEGER REFERENCES users ON DELETE CASCADE
 );
 
 -- monster data imported from monsters.csv
