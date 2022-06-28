@@ -6,17 +6,11 @@ CREATE DATABASE dragon;
 \connect dragon
 
 \i dragon-schema.sql
-\i dragon-seed.sql
+-- \i dragon-seed.sql
 
 -- get data from csv
--- COPY monsters 
--- FROM 'C:\Users\tyler\Desktop\db_data\monsters.csv'
--- DELIMITER ';'
--- CSV HEADER;
+COPY monsters(Name, ChallengeRating, ChallengeXP, ACType, AC, STR, STRMod, DEX, DEXMod, CON, CONMod, INT, INTMod, WIS, WISMod, CHA, CHAMod, HPDice, HP) 
+FROM '/home/blueturtle758/dragon/dragon_backend/monsters.csv'
+DELIMITER ';'
+CSV HEADER;
 
--- \! pwd tells me directory where I am, not psql
-
-\copy monsters FROM "C:\Users\tyler\Desktop\db_data\monsters.csv" DELIMITER ';' CSV HEADER
-
--- keep locally?
--- \copy monsters FROM "monsters.csv" DELIMITER ';' CSV HEADER
