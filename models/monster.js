@@ -13,34 +13,38 @@ const {
 
 class Monster {
 
-  /** Find all monsters.
+  /** Find all monsters, includes their abilities
    *
    * Returns [{ all monster props }, ...]
    **/
 
   static async findAll() {
     const result = await db.query(
-      `SELECT id, 
-      name, 
-      challengerating AS "challengeRating",
-      challengexp AS "challengeXP",
-      actype AS "acType",
-      ac, 
-      str, 
-      strmod AS "strMod", 
-      dex, 
-      dexmod AS "dexMod",
-      con, 
-      conmod AS "conMod",
-      int,
-      intmod AS "intMod",
-      wis, 
-      wismod AS "wisMod", 
-      cha,
-      chamod AS "chaMod",
-      hp
-           FROM monsters
-           ORDER BY id`,
+      `SELECT m.id, 
+      m.name, 
+      m.challengerating AS "challengeRating",
+      m.challengexp AS "challengeXP",
+      m.actype AS "acType",
+      m.ac, 
+      m.str, 
+      m.strmod AS "strMod", 
+      m.dex, 
+      m.dexmod AS "dexMod",
+      m.con, 
+      m.conmod AS "conMod",
+      m.int,
+      m.intmod AS "intMod",
+      m.wis, 
+      m.wismod AS "wisMod", 
+      m.cha,
+      m.chamod AS "chaMod",
+      m.hp, 
+      a.name AS "abilityName", 
+      a.type
+           FROM monsters m
+           LEFT JOIN monsters_abilities ma ON ma.monster_id = m.id
+           LEFT JOIN abilities a ON a.id = ma.ability_id
+           ORDER BY m.id`,
     );
 
     return result.rows;

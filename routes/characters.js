@@ -8,28 +8,28 @@ const { BadRequestError } = require("../expressError");
 const router = new express.Router();
 
 const { ensureCorrectUser } = require("../middleware/auth");
-const Monster = require("../models/monster");
+const Character = require('../models/character')
 
 router.get('/', async (req, res, next) => {
     try {
 
-        const monsters = await Monster.findAll();
+        const characters = await Character.findAll();
 
         const abilityArray = [];
 
-        const monstersWithAbilities = monsters.reduce((accum, monster, i, arr) => {
-            if (monster.abilityName) abilityArray.push(monster.abilityName);
-            if (i === arr.length - 1 || monster.name !== arr[i + 1].name) {
-                monster.abilities = [...abilityArray];
+        const charactersWithAbilities = characters.reduce((accum, character, i, arr) => {
+            if (character.abilityName) abilityArray.push(character.abilityName);
+            if (i === arr.length - 1 || character.name !== arr[i + 1].name) {
+                character.abilities = [...abilityArray];
                 abilityArray.length = 0;
-                accum.push(monster);
+                accum.push(character);
             }
-            else if (!monster.abilityName) accum.push(monster);
+            else if (!character.abilityName) accum.push(character);
 
             return accum;
         }, [])
 
-        return res.json(monstersWithAbilities);
+        return res.json(charactersWithAbilities);
 
     } catch (err) {
         return next(err)

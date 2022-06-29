@@ -4,11 +4,10 @@ CREATE TABLE users (
   password TEXT NOT NULL
 );
 
-
+-- change to name instead of first/last
 CREATE TABLE characters (
     id SERIAL PRIMARY KEY,
-    first_name VARCHAR(20) NOT NULL, 
-    last_name VARCHAR(20) NOT NULL,
+    name VARCHAR(30) NOT NULL,
     race VARCHAR(20) NOT NULL,
     class VARCHAR(20) NOT NULL,
     Level INTEGER NOT NULL,
@@ -32,7 +31,7 @@ CREATE TABLE characters (
 -- monster data imported from monsters.csv
 CREATE TABLE monsters (
     id SERIAL PRIMARY KEY,
-    Name VARCHAR(50) NOT NULL UNIQUE, 
+    Name VARCHAR(30) NOT NULL UNIQUE, 
     ChallengeRating INTEGER NOT NULL,
     ChallengeXP INTEGER NOT NULL, 
     ACType VARCHAR(25),

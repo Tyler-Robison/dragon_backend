@@ -9,7 +9,7 @@ const { authenticateJWT } = require("./middleware/auth");
 // const authRoutes = require("./routes/auth");
 // const userRoutes = require("./routes/users");
 const monsterRoutes = require("./routes/monsters")
-// const mealRoutes = require("./routes/mealPlanner")
+const characterRoutes = require("./routes/characters")
 
 const app = express();
 
@@ -33,6 +33,7 @@ app.use(authenticateJWT);
 
 /** Routes that get recipe info from Spoontacular API and manage user recipes */
 app.use("/monsters", monsterRoutes);
+app.use("/characters", characterRoutes);
 
 
 
