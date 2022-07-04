@@ -23,7 +23,7 @@ class Character {
             `SELECT c.id, 
       c.name, 
       c.race,
-      c.class,
+      c.class AS "creatureClass",
       c.level,
       c.ac, 
       c.str, 
