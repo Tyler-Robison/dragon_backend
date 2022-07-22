@@ -24,7 +24,7 @@ ALTER SEQUENCE abilities_id_seq RESTART WITH 1;
 \i dragon-character-seed.sql
 
 -- seed monsters via monsters.csv
-COPY monsters(Name, ChallengeRating, ChallengeXP, ACType, AC, STR, STRMod, DEX, DEXMod, CON, CONMod, INT, INTMod, WIS, WISMod, CHA, CHAMod, HPDice, HP) 
+COPY monsters(Name, ChallengeRating, ChallengeXP, ACType, AC, STR, STRMod, DEX, DEXMod, CON, CONMod, INT, INTMod, WIS, WISMod, CHA, CHAMod, HPDice, HP, speed) 
 FROM '/home/blueturtle758/dragon/dragon_backend/monsters.csv'
 DELIMITER ';'
 CSV HEADER;

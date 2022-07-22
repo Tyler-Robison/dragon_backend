@@ -39,6 +39,7 @@ class Monster {
       m.cha,
       m.chamod AS "chaMod",
       m.hp, 
+      m.speed, 
       a.name AS "abilityName", 
       a.type
            FROM monsters m
