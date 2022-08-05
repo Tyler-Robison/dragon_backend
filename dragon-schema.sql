@@ -26,7 +26,7 @@ CREATE TABLE characters (
     CHAMod INTEGER NOT NULL, 
     HP INTEGER NOT NULL,
     speed INTEGER NOT NULL,
-    experience INTEGER NOT NULL,
+    exp INTEGER NOT NULL,
     user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
