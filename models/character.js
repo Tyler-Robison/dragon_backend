@@ -40,6 +40,7 @@ class Character {
       c.chamod AS "chaMod",
       c.hp, 
       c.speed,
+      c.exp,
       a.name AS "abilityName", 
       a.type
            FROM characters c
