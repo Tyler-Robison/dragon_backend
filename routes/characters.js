@@ -22,6 +22,7 @@ router.get('/', async (req, res, next) => {
             if (i === arr.length - 1 || character.name !== arr[i + 1].name) {
                 character.abilities = [...abilityArray];
                 abilityArray.length = 0;
+                delete character.abilityName;
                 accum.push(character);
             }
             else if (!character.abilityName) accum.push(character);

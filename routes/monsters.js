@@ -18,10 +18,12 @@ router.get('/', async (req, res, next) => {
         const abilityArray = [];
 
         const monstersWithAbilities = monsters.reduce((accum, monster, i, arr) => {
+            if (i < 5) console.log('monster', monster)
             if (monster.abilityName) abilityArray.push(monster.abilityName);
             if (i === arr.length - 1 || monster.name !== arr[i + 1].name) {
                 monster.abilities = [...abilityArray];
                 abilityArray.length = 0;
+                delete monster.abilityName;
                 accum.push(monster);
             }
             else if (!monster.abilityName) accum.push(monster);
